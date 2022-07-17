@@ -1,7 +1,6 @@
-import express, { json } from 'express'
 import cors from 'cors'
+import express, { json } from 'express'
 import helmet from 'helmet'
-import fs from 'fs'
 import morgan from 'morgan'
 
 const api = express()
@@ -23,11 +22,44 @@ api.get('/', (req, res) => {
   res.send('shorturl.at/hqCK0')
 })
 
-fs.readdir('./api/routes', (err, files) => {
-  files.forEach((file) => {
-    console.log('added routes: ' + file.split('.')[0])
-    api.use(`/api/${file.split('.')[0]}`, require('./routes/' + file).default)
-  })
+api.post('/totalmessage', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setisingame', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setobservingplayer', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setkillinfo', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setgameglobalinfo', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setcircleinfo', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setteamreportdata', (req, res) => {
+  console.log(req.body)
+  res.send(200)
+})
+
+api.post('/setplayerreportdata', (req, res) => {
+  console.log(req.body)
+  res.send(200)
 })
 
 export default api

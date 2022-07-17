@@ -1,10 +1,5 @@
-import { TestModel } from '../../models/test.model'
-import generateUUID from '../../utils/generateUUID'
+import { sendSocketMessage } from '../../socket/initSocket'
 export default async ({ data }) => {
-  const testModel = new TestModel({
-    _id: generateUUID(),
-    data,
-  })
-  await testModel.save()
-  return { _id: testModel._id, data }
+  sendSocketMessage('observer.hello', 'hey')
+  return 200
 }
